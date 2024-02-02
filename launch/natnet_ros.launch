@@ -7,8 +7,8 @@
   <arg name="log_latencies" default="false"/>
 
   <!-- CONNECTION -->
-  <arg name="serverIP" default="192.168.0.100"/>
-  <arg name="clientIP" default="192.168.0.103"/>
+  <arg name="serverIP" default="169.254.252.45"/>
+  <arg name="clientIP" default="169.254.252.111"/>
   <arg name="serverType" default="multicast"/>
   <arg name="multicastAddress" default="239.255.42.99"/>
   <arg name="serverCommandPort" default="1510"/>
@@ -17,12 +17,12 @@
 
   <!-- PUBLISHING -->
   <!-- To publish the frame of rigid body -->
-  <arg name="pub_rigid_body" default="true"/> 
+  <arg name="pub_rigid_body" default="false"/> 
   <!-- To publish the individual (unlabeled) markers along with the (labeled) markers of the rigid bodies -->
   <!-- keep pub_rigid_body to true to publish the markers of the rigidbody -->
-  <arg name="pub_rigid_body_marker" default="true"/>  
+  <arg name="pub_rigid_body_marker" default="false"/>  
   <!-- To publish markers as rigidbodies and track them, make the required changes in the config/initiate.yaml -->
-  <arg name="pub_individual_marker" default="false"/>
+  <arg name="pub_individual_marker" default="true"/>
   <!-- To publish all the unlabeled markers as point cloud -->
   <arg name="pub_pointcloud" default="false"/>
 
@@ -40,6 +40,7 @@
     <param name="globalFrame" value="$(arg globalFrame)" type="str"/>
   </group>
   
+  <remap from="/tf" to="/tf_ball"/>
   <node pkg="natnet_ros_cpp" type="natnet_ros_cpp" name="natnet_ros" output="screen" >    
     <!-- CONFIG-FILE -->
     <rosparam file="$(find natnet_ros_cpp)/config/$(arg conf_file)"/>   

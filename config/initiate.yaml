@@ -16,7 +16,7 @@ E_x: 0.04
 E_y: 0.04
 E_z: 0.04
 # Tracking tolerance considered as norm of 3D vector when 'Individual_error' is set to false
-E: 0.04
+E: 0.5
 #-------------#
 
 # Add all the object names in this list to get the head count and the names of the objects
@@ -64,12 +64,32 @@ E: 0.04
 #      - 0.0
 
 object_names:
-  - cf1
-cf1:
-    marker_config: 0
+  - ball1
+  # - ball2
+  # - ball3
+
+
+ball1:
     pose:
-      orientation: []
       position:
-      - -0.24554595351219177
-      - -1.3885701894760132
-      - 0.048130884766578674
+      - 0.9
+      - 3.96
+      - 1.15
+      # position:
+      # - -1.64
+      # - 3.96
+      # - 0.3
+
+# ball2:
+#     pose:
+#       position:
+#       - -2.1
+#       - 1.85
+#       - 0.3
+
+# ball3:
+#     pose:
+#       position:
+#       - 2.44
+#       - 1.4
+#       - 0.578
